@@ -4,6 +4,7 @@ import useCategory from "../hooks/useCategory";
 import Layout from "../components/Layout/Layout";
 const Categories = () => {
   const categories = useCategory();
+  console.log('categories: ', categories);
   return (
     <Layout title={"All Categories"}>
       <div className="container" style={{ marginTop: "100px" }}>

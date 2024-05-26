@@ -66,13 +66,13 @@ export const getProductController = async (req, res) => {
   try {
     const products = await ProductModel.find({})
       .populate("category")
-      .select("-photo")
+      // .select("-photo")
       .limit(12)
       .sort({ createdAt: -1 });
     res.status(200).send({
       success: true,
       counTotal: products.length,
-      message: "ALlProducts ",
+      message: "AllProducts ",
       products,
     });
   } catch (error) {
@@ -88,7 +88,7 @@ export const getProductController = async (req, res) => {
 export const getSingleProduct = async (req, res) => {
   try {
     const product = await ProductModel.findOne({ slug: req.params.slug })
-      .select("-photo")
+      // .select("-photo")
       .populate("category");
     res.status(200).send({
       success: true,
@@ -108,7 +108,8 @@ export const getSingleProduct = async (req, res) => {
 // get photo
 export const productPhotoController = async (req, res) => {
   try {
-    const product = await ProductModel.findById(req.params.pid).select("photo");
+    const product = await ProductModel.findById(req.params.pid)
+    // .select("photo");
     if (product.photo.data) {
       res.set("Content-type", product.photo.contentType);
       return res.status(200).send(product.photo.data);
@@ -126,7 +127,8 @@ export const productPhotoController = async (req, res) => {
 //delete controller
 export const deleteProductController = async (req, res) => {
   try {
-    await ProductModel.findByIdAndDelete(req.params.pid).select("-photo");
+    await ProductModel.findByIdAndDelete(req.params.pid)
+    // .select("-photo");
     res.status(200).send({
       success: true,
       message: "Product Deleted successfully",
@@ -236,7 +238,7 @@ export const productListController = async (req, res) => {
     const perPage = 4;
     const page = req.params.page ? req.params.page : 1;
     const products = await ProductModel.find({})
-      .select("-photo")
+      // .select("-photo")
       .skip((page - 1) * perPage)
       .limit(perPage)
       .sort({ createdAt: -1 });
@@ -263,7 +265,8 @@ export const searchProductController = async (req, res) => {
         { name: { $regex: keyword, $options: "i" } },
         { description: { $regex: keyword, $options: "i" } },
       ],
-    }).select("-photo");
+    })
+    // .select("-photo");
     res.json(result);
   } catch (error) {
     console.log(error);
@@ -283,7 +286,7 @@ export const relatedProductController = async (req, res) => {
       category: cid,
       _id: { $ne: pid },
     })
-      .select("-photo")
+      // .select("-photo")
       .limit(3)
       .populate("category");
     res.status(200).send({

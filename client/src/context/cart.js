@@ -6,7 +6,12 @@ const CartProvider = ({ children }) => {
 
   useEffect(() => {
     let exisitingCartItem = localStorage.getItem('cart')
-    if(exisitingCartItem) setCart(JSON.parse(exisitingCartItem))
+    if(exisitingCartItem) {
+      const parsedCartItem = JSON.parse(exisitingCartItem);
+      delete parsedCartItem[0].photo; // Remove 'photo' field from the cart item
+      console.log('parsedCartItem: ', parsedCartItem);
+      setCart(parsedCartItem)
+    }
   },[])
   return (
     <CartContext.Provider value={[cart, setCart]}>
