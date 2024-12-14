@@ -1,0 +1,113 @@
+.category {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between cards */
+  justify-content: space-between;
+  margin-top: 80px !important;
+}
+
+.category .card {
+  background-color: rgba(128, 128, 128, 0.097);
+  width: calc(33.333% - 20px); /* 3 cards per row */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin-bottom: 20px; /* Bottom margin for spacing */
+  display: flex;
+  flex-direction: column; /* Ensures content inside the card stacks vertically */
+  font-size: 14px; /* Set default font size to prevent scale issues */
+  min-height: 400px; /* Ensure minimum height for the card */
+}
+
+.category .card-body {
+  flex-grow: 1; /* Ensures the body takes up remaining space */
+}
+
+.category .card-name-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center; /* Aligns text to prevent price being pushed */
+}
+
+.category .card-title {
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Ensure long product names get truncated */
+  max-width: 100%;
+  flex-grow: 1; /* Ensure title can take available space */
+}
+
+.category .card-price {
+  color: green;
+  font-weight: bold;
+  font-size: 14px; /* Ensure the price is displayed properly */
+  white-space: nowrap; /* Prevent price text from wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Truncate if needed, but should not be cut off easily */
+}
+
+.category .card-text {
+  color: rgb(90, 89, 89);
+  font-size: 14px; /* Consistent font size for description */
+  margin: 10px;
+  text-overflow: ellipsis; /* Prevent text overflow in the description */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Truncate long descriptions after 2 lines */
+  -webkit-box-orient: vertical;
+  flex-grow: 1; /* Ensures description does not overlap */
+}
+
+.category button {
+  border-radius: 0;
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 14px; /* Set consistent button font size */
+  font-weight: bold;
+  padding: 10px;
+  margin-top: auto; /* Push button to the bottom of the card */
+}
+
+.category .card img:hover {
+  transform: scale(0.9);
+  transition: transform 0.3s ease-in-out;
+}
+
+.category .card-img-top {
+  object-fit: contain;
+  width: 100%;
+  height: 200px !important;
+}
+
+.category .card-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin-top: auto; /* Push buttons to the bottom */
+}
+
+.category .card-buttons .btn {
+  width: 49%;
+  text-align: center;
+  font-size: 14px; /* Keep button font size consistent */
+  padding: 8px;
+  margin-top: 10px; /* Ensure some space between the description and button */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .category .card {
+    width: calc(50% - 20px); /* 2 cards per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .category .card {
+    width: calc(100% - 20px); /* 1 card per row */
+  }
+}

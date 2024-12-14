@@ -1,0 +1,133 @@
+.banner-img {
+  margin-top: 60px;
+}
+
+.home-page h1 {
+  color: gray;
+  font-family: "Playfair Display", serif;
+}
+
+.home-page {
+  display: flex;
+  flex-wrap: wrap; /* Ensure items wrap to the next line */
+  justify-content: space-between; /* Evenly space the cards */
+  gap: 20px; /* Add space between the cards */
+}
+
+.home-page .card {
+  background-color: rgba(128, 128, 128, 0.097);
+  width: 17.5rem;
+  height: 24rem; /* Set a consistent height for all cards */
+  display: flex;
+  flex-direction: column; /* Arrange content vertically */
+  justify-content: space-between; /* Space content evenly */
+  border-radius: 8px; /* Add rounded corners */
+  overflow: hidden; /* Prevent content overflow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  padding: 10px; /* Add padding inside the card */
+}
+
+.home-page .card:hover {
+  transform: translateY(-5px); /* Optional: subtle hover effect */
+  transition: 0.3s ease;
+}
+
+.home-page .card-img-top {
+  width: 100%; /* Ensure the image spans the full width of the card */
+  height: 200px; /* Fixed height for all images */
+  object-fit: contain; /* Crop the image to fit within the container */
+  display: block;
+}
+
+.home-page .card-name-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-page .card-title {
+  font-size: small;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Add "..." for overflow */
+  width: 80%; /* Restrict width to prevent overlap */
+}
+
+.home-page .card-price {
+  color: green;
+  font-weight: bold;
+}
+
+.home-page .card-text {
+  color: rgb(90, 89, 89);
+  font-size: 14px; /* Ensure a consistent font size */
+  margin-bottom: 10px; /* Add spacing before the buttons */
+}
+
+.home-page button {
+  border-radius: 5px;
+  width: 90%; /* Ensure buttons are consistent in size */
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px; /* Add padding for better appearance */
+  margin: 5px auto; /* Center align the buttons */
+}
+
+.home-page button:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.filters h4 {
+  margin-top: 100px;
+  color: gray !important;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.337);
+}
+
+.filters button {
+  background-color: black;
+  width: 100%;
+  border: none;
+  border-radius: 5px; /* Make the button more visually appealing */
+  margin-top: 20px;
+}
+
+/* Optional: Add a hover effect for filter buttons */
+.filters button:hover {
+  background-color: gray;
+  color: white;
+}
+
+
+.filters{
+  width: 20%; /* Set a fixed width for the filters */
+  margin-top: 60px; /* Align with the rest of the content */
+}
+
+/* Product section */
+.products {
+  width: 75%; /* Take up the remaining space */
+  display: flex;
+  flex-wrap: wrap; /* Allow product cards to wrap if necessary */
+  gap: 20px; /* Add spacing between product cards */
+  justify-content: space-between; /* Space the cards evenly */
+}
+
+/* Individual product cards */
+.products .card {
+  flex: 1 1 calc(33.33% - 20px); /* Cards take up 1/3rd of the row with gap adjustment */
+  max-width: calc(33.33% - 20px);
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+/* Ensure buttons are displayed side by side and have equal width */
+
+.card-name-price{
+display: flex;
+gap: 10px;
+flex: 1; /* Ensure both buttons have equal width */
+  border-radius: 5px; /* Optional: consistent border radius */
+  font-size: 14px;
+  font-weight: bold;
+}
